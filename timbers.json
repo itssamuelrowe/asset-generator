@@ -1,0 +1,12 @@
+[
+  { "length": 2.0,  "width": 0.22, "height": 0.18, "seed": 7,  "location": [0.00, 0, 0] },
+  { "length": 1.5,  "width": 0.18, "height": 0.15, "seed": 21, "location": [0.35, 0, 0] },
+  { "length": 2.5,  "width": 0.25, "height": 0.20, "seed": 38, "location": [0.70, 0, 0] },
+  { "length": 1.8,  "width": 0.20, "height": 0.16, "seed": 55, "location": [1.05, 0, 0] },
+  { "length": 3.0,  "width": 0.28, "height": 0.22, "seed": 72, "location": [1.40, 0, 0] },
+  { "length": 1.2,  "width": 0.16, "height": 0.14, "seed": 89, "location": [1.75, 0, 0] },
+  { "length": 2.2,  "width": 0.24, "height": 0.19, "seed": 106,"location": [2.10, 0, 0] },
+  { "length": 1.6,  "width": 0.19, "height": 0.17, "seed": 123,"location": [2.45, 0, 0] },
+  { "length": 2.8,  "width": 0.26, "height": 0.21, "seed": 140,"location": [2.80, 0, 0] },
+  { "length": 2.0,  "width": 0.21, "height": 0.20, "seed": 157,"location": [3.15, 0, 0] }
+]
