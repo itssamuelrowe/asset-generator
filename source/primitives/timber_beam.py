@@ -229,7 +229,7 @@ def hew_faces(pts, p, length):
     Vertices on that face are pushed inward by the segment's plane offset.
 
     This produces the characteristic staircase of broad flat facets:
-        ──────────
+        ----------
          \________
           \_______
     """

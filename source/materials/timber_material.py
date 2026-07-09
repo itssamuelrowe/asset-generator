@@ -25,9 +25,36 @@ Procedural layers (no extra textures needed):
 import os
 import bpy
 
-TEXTURE_DIR       = os.path.join(os.path.dirname(os.path.abspath(__file__)), "textures/weathered_planks")
+_TEXTURES_ROOT    = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "textures")
+TEXTURE_DIR       = os.path.join(_TEXTURES_ROOT, "weathered_planks")
 USE_OPENGL_NORMAL = True
 MATERIAL_NAME     = "TimberMaterial"
+
+
+def set_texture_dir(path):
+    """
+    Set the active texture directory.  `path` may be:
+      - an absolute path          e.g. /home/user/textures/rough_wood
+      - a name of a subdirectory  e.g. "rough_wood"  (resolved under textures/)
+    Clears the cached material so the next call to get_timber_material()
+    rebuilds the node tree from the new directory.
+    """
+    global TEXTURE_DIR
+    candidate = path if os.path.isabs(path) else os.path.join(_TEXTURES_ROOT, path)
+    if not os.path.isdir(candidate):
+        raise ValueError(f"Texture directory not found: {candidate}")
+    TEXTURE_DIR = candidate
+    # Remove cached material so it is rebuilt with the new textures
+    if MATERIAL_NAME in bpy.data.materials:
+        bpy.data.materials.remove(bpy.data.materials[MATERIAL_NAME])
+
+
+def list_texture_sets():
+    """Return the names of available texture sets under the textures/ directory."""
+    if not os.path.isdir(_TEXTURES_ROOT):
+        return []
+    return sorted(d for d in os.listdir(_TEXTURES_ROOT)
+                  if os.path.isdir(os.path.join(_TEXTURES_ROOT, d)))
 
 # Grain scale: lower Z = fewer repeats along beam length.
 # 0.12 → one repeat spans ~8× the beam radius (broad painted-grain look).

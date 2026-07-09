@@ -1,2 +1,5 @@
 __pycache__/
-textures
+*.pyc
+source/__pycache__/
+output/
+textures/
